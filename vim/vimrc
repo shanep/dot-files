@@ -1,0 +1,70 @@
+"Author Shane K. Panter
+"shane@foundationcode.com
+"shanepanter@boisestate.edu"
+
+"set up ctags and tlist
+let Tlist_Ctags_Cmd = "ctags"
+let Tlist_WinWidth = 50
+map <F4> :TagbarToggle<cr>
+map <F6> :make<cr>
+map <F8> :!ctags -R --fields=+nks --excmd=pattern --format=2 .<CR>
+
+
+"general code formating options
+set nu
+set autoindent
+set hlsearch
+set incsearch
+
+
+" Hide the mouse when typing text
+set mousehide
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+
+"Kill trailing white space
+function! TrimWhiteSpace()
+	%s/\s\+$//e
+endfunction
+
+autocmd FileWritePre  * :call TrimWhiteSpace()
+autocmd FileAppendPre * :call TrimWhiteSpace()
+autocmd FileWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre   * :call TrimWhiteSpace()
+
+"Turn on vim-airline features
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
+filetype plugin indent on
+if !exists("g:syntax_on")
+	syntax enable
+endif
+
+if has("cscope")
+	" set csprg=/usr/local/bin/cscope
+	set csto=0
+	set cst
+	set nocsverb
+	" add any database in current directory
+	if filereadable("cscope.out")
+	    cs add cscope.out
+	" else add database pointed to by environment
+	elseif $CSCOPE_DB != ""
+	    cs add $CSCOPE_DB
+	endif
+	set csverb
+endif

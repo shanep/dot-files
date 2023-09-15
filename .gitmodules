@@ -1,0 +1,12 @@
+[submodule "vim/pack/shanep/start/tcomment_vim"]
+	path = vim/pack/shanep/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/pack/shanep/start/vim-airline"]
+	path = vim/pack/shanep/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/shanep/start/vim-fugitive"]
+	path = vim/pack/shanep/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/shanep/start/tagbar"]
+	path = vim/pack/shanep/start/tagbar
+	url = https://github.com/majutsushi/tagbar
