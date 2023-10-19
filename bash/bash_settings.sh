@@ -46,20 +46,19 @@ then
     export DISPLAY=:0.0
 fi
 
-
-#Add $HOME/go/bin into the path
 if [[ ! ":$PATH:" == *":$HOME/go/bin:"* ]]; then
     PATH=$HOME/go/bin:$PATH
 fi
 
-#Add $HOME/.cargo/bin into the path
 if [[ ! ":$PATH:" == *":$HOME/.cargo/bin:"* ]]; then
     PATH=$HOME/.cargo/bin:$PATH
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin:$HOME/.gem/bin"
-export GEM_HOME="$HOME/.gem"
+#Set vcpkg stuff
+export VCPKG_ROOT="$HOME/opensource/vcpkg"
+if [[ ! ":$PATH:" == *":$VCPKG_ROOT:"* ]]; then
+    PATH=$VCPKG_ROOT:$PATH
+fi
 
 # Fix for WSL bad default umask permissions
 if [ "$(umask)" = "0000" ]; then
