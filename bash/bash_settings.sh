@@ -54,6 +54,10 @@ if [[ ! ":$PATH:" == *":$HOME/.cargo/bin:"* ]]; then
     PATH=$HOME/.cargo/bin:$PATH
 fi
 
+if [[ ! ":$PATH:" == *":$HOME/.npm-packages/bin:"* ]]; then
+    PATH=$HOME/.npm-packages/bin:$PATH
+fi
+
 #Set vcpkg stuff
 export VCPKG_ROOT="$HOME/opensource/vcpkg"
 if [[ ! ":$PATH:" == *":$VCPKG_ROOT:"* ]]; then
