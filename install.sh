@@ -16,5 +16,7 @@ popd
 git config --global user.email "shane@foundationcode.com"
 git config --global user.name "Shane Panter"
 
+ln -s `pwd`/mbsyncrc $HOME/.mbsyncrc
+
 
 echo "Restart bash or source the bashrc to get all changes"

@@ -1,1 +1,1 @@
-/Users/shane/repos/os-config/vim
+/Users/shane/repos/dot-files/vim
