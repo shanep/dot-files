@@ -1,0 +1,26 @@
+IMAPAccount bsu
+Host imap.gmail.com
+User shanepanter@boisestate.edu
+UseKeychain yes
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore bsu-remote
+Account bsu
+
+MaildirStore bsu-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/Maildir/
+Inbox ~/Maildir/Inbox
+
+
+Channel bsu
+Far :bsu-remote:
+Near :bsu-local:
+# Use gmail->settings->labels to exclude folders from IMAP
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
