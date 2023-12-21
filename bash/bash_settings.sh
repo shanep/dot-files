@@ -17,7 +17,7 @@ precmd ()
 if [ -n "$ZSH_VERSION" ]; then
 	setopt PROMPT_SUBST
 elif [ -n "$BASH_VERSION" ]; then
-    PS1='[\u@\h:\w]\$'
+n    PS1='[\u@\h:\w]\$'
 	PROMPT_COMMAND='__git_ps1 "[\u@\h:\W]" "\n\$ "'
 fi
 
@@ -63,6 +63,20 @@ export VCPKG_ROOT="$HOME/opensource/vcpkg"
 if [[ ! ":$PATH:" == *":$VCPKG_ROOT:"* ]]; then
     PATH=$VCPKG_ROOT:$PATH
 fi
+
+
+if [[ ! ":$PATH:" == *":$HOME/.qlot/bin:"* ]]; then
+    PATH=$HOME/.qlot/bin:$PATH
+fi
+
+
+if [[ ! ":$PATH:" == *":$HOME/common-lisp/lem:"* ]]; then
+    PATH=$HOME/common-lisp/lem:$PATH
+fi
+
+
+
+
 
 # Fix for WSL bad default umask permissions
 if [ "$(umask)" = "0000" ]; then
