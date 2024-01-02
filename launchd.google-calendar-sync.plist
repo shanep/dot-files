@@ -2,21 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
     <key>Label</key>
     <string>launched.google-calendar-sync</string>
     <key>ProgramArguments</key>
     <array>
-      <string>sh</string>
-      <string>-c</string>
-      <string>google-cal.sh</string>
+      <string>/Users/shane/bin/google-cal.sh</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>/Users/shane/tmp</string>
+    <string>/tmp/google-cal.log</string>
     <key>StandardOutPath</key>
-    <string>/Users/shane/tmp</string>
+    <string>/tmp/google-cal.log</string>
     <key>StartInterval</key>
     <integer>3600</integer>
     <key>WorkingDirectory</key>
-    <string>/Users/shane</string>
+    <string>/Users/shane/</string>
   </dict>
 </plist>

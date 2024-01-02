@@ -1,0 +1,14 @@
+#+title:Dot Files
+* OS Config
+
+All my settings for my daily dev tools. This repo contains customizations and settings for the
+following tools.
+
+- vim  - Installs a minimal set of plugins for usage
+- bash - Installs a minimal set of customizations
+
+* Setup
+
+After running install.sh copy over the file google-cal.sh and fill it in with all the relevant
+details to enable org mode sync. You can debug problems with launchctl using
+https://www.soma-zone.com/download/.
