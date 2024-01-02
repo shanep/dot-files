@@ -15,10 +15,10 @@ precmd ()
 
 #Set the prompt for both ZSH and BASH
 if [ -n "$ZSH_VERSION" ]; then
-	setopt PROMPT_SUBST
+    setopt PROMPT_SUBST
 elif [ -n "$BASH_VERSION" ]; then
-n    PS1='[\u@\h:\w]\$'
-	PROMPT_COMMAND='__git_ps1 "[\u@\h:\W]" "\n\$ "'
+    PS1='[\u@\h:\w]\$'
+    PROMPT_COMMAND='__git_ps1 "[\u@\h:\W]" "\n\$ "'
 fi
 
 #Turn on git-prompt settings
@@ -48,48 +48,58 @@ fi
 
 if [[ ! ":$PATH:" == *":$HOME/go/bin:"* ]]; then
     PATH=$HOME/go/bin:$PATH
-fi
+    fi
 
-if [[ ! ":$PATH:" == *":$HOME/.cargo/bin:"* ]]; then
-    PATH=$HOME/.cargo/bin:$PATH
-fi
+    if [[ ! ":$PATH:" == *":$HOME/.cargo/bin:"* ]]; then
+	PATH=$HOME/.cargo/bin:$PATH
+    fi
 
-if [[ ! ":$PATH:" == *":$HOME/.npm-packages/bin:"* ]]; then
-    PATH=$HOME/.npm-packages/bin:$PATH
-fi
+    if [[ ! ":$PATH:" == *":$HOME/.npm-packages/bin:"* ]]; then
+	PATH=$HOME/.npm-packages/bin:$PATH
+    fi
 
-#Set vcpkg stuff
-export VCPKG_ROOT="$HOME/opensource/vcpkg"
-if [[ ! ":$PATH:" == *":$VCPKG_ROOT:"* ]]; then
-    PATH=$VCPKG_ROOT:$PATH
-fi
-
-
-if [[ ! ":$PATH:" == *":$HOME/.qlot/bin:"* ]]; then
-    PATH=$HOME/.qlot/bin:$PATH
-fi
+    #Set vcpkg stuff
+    export VCPKG_ROOT="$HOME/opensource/vcpkg"
+    if [[ ! ":$PATH:" == *":$VCPKG_ROOT:"* ]]; then
+	PATH=$VCPKG_ROOT:$PATH
+    fi
 
 
-if [[ ! ":$PATH:" == *":$HOME/common-lisp/lem:"* ]]; then
-    PATH=$HOME/common-lisp/lem:$PATH
-fi
+    if [[ ! ":$PATH:" == *":$HOME/.qlot/bin:"* ]]; then
+	PATH=$HOME/.qlot/bin:$PATH
+    fi
+
+
+    if [[ ! ":$PATH:" == *":$HOME/common-lisp/lem:"* ]]; then
+	PATH=$HOME/common-lisp/lem:$PATH
+    fi
+
+    if [[ ! ":$PATH:" == *":$HOME/common-lisp/lem:"* ]]; then
+	PATH=$HOME/common-lisp/lem:$PATH
+    fi
 
 
 
+    # Set PATH, MANPATH, etc., for Homebrew.
+    if [ $(uname) = "Darwin" ]
+    then
 
 
-# Fix for WSL bad default umask permissions
-if [ "$(umask)" = "0000" ]; then
-	umask 0022
-fi
+	alias emacs='Emacs'
 
-# Set PATH, MANPATH, etc., for Homebrew.
-if [ $(uname) = "Darwin" ]
-then
+	if [[ ! ":$PATH:" == *":$HOME/opensource/emacs/nextstep/Emacs.app/Contents/MacOS:"* ]]; then
+	    PATH=$HOME/opensource/emacs/nextstep/Emacs.app/Contents/MacOS:$PATH
+	fi
+
+        if [[ ! ":$PATH:" == *":$HOME/opensource/emacs/nextstep/Emacs.app/Contents/MacOS/bin:"* ]]; then
+	    PATH=$HOME/opensource/emacs/nextstep/Emacs.app/Contents/MacOS/bin:$PATH
+	fi
+
+
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+	if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+	    export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+	    export PATH=`gem environment gemdir`/bin:$PATH
+	fi
 
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
+    fi
