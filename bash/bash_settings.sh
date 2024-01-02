@@ -32,7 +32,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 #Add in alias
 alias ll='ls -l'
 alias la='ls -l -a'
-alias e='emacsclient -c -n --alternate-editor=""'
+
 
 #Make ls color by default
 alias ls='ls --color'
@@ -84,7 +84,7 @@ if [[ ! ":$PATH:" == *":$HOME/go/bin:"* ]]; then
     if [ $(uname) = "Darwin" ]
     then
 
-
+	alias e='Emacs&; disown'
 	alias emacs='Emacs'
 
 	if [[ ! ":$PATH:" == *":$HOME/opensource/emacs/nextstep/Emacs.app/Contents/MacOS:"* ]]; then
