@@ -109,7 +109,7 @@ BEGIN {
     calendarname = ENVIRON["CALENDAR"] != "" ? ENVIRON["CALENDAR"] : "boisestate-cal"
 
     # any tags for this calendar (e.g. "WORK" or "PERSONAL")
-    filetags = ENVIRON["FILETAGS"] != "" ? ENVIRON["FILETAGS"] : "meeting"
+    filetags = ENVIRON["FILETAGS"] != "office" ? ENVIRON["FILETAGS"] : "meeting"
 
     # timezone offsets
     # TODO: this is stupid
